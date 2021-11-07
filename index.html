@@ -8,6 +8,7 @@
     <title>Sébastien [PORTFOLIO][dev]</title>
 </head>
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -20,7 +21,7 @@
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse pt-5" id="navbarNavDropdown">
                     <ul class="navbar-nav w-100 justify-content-around">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -36,7 +37,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-id-card"></i> Contact</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fas fa-id-card"></i> Contact
+                        </button>
+                       
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
@@ -52,7 +56,36 @@
                 </div>
             </div>
         </nav>
+
     </header>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contactez moi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="mailto:larcher501@gmail.com" method="GET" enctype="text/html">
+                        <div class="form-group pb-5">
+                            <label for="exampleInputObj">Obj</label>
+                            <input type="text" class="form-control" id="exampleInputObj" aria-describedby="emailHelp" placeholder="Coucou" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputMessage">Laissez moi un message</label>
+                            <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Bonjour, " name="body"></textarea>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary-light" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="main">
         <div class="site-in-building text-center">
             <i class="fas fa-toolbox"></i>
@@ -62,7 +95,7 @@
     <footer>
         <ul class="text-light">
             <li id="credit">
-                <span>Crédits photo: </span>
+                <span>Crédits photo : </span>
                 <ul>
                     <li>
                         <a class="text-light" href="https://pixabay.com/fr/users/painter06-3732158/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3388163">

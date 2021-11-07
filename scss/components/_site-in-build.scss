@@ -14,17 +14,22 @@
 }
 
 .site-in-building {
+    $width: 90%;
+    $margin: (100% -$width) / 2;
     position: absolute;
-    width: 100%;
-    top: 20%;
+    width: $width;
+    top: 5%;
+    left:$margin;
+    right:$margin;
     font-size: 128px;
     color: yellow;
     transform-origin: center center 800px;
     background-color: rgba($primary, 0.8);
     z-index: 1;
     border: 10px solid;
-    border-image: repeating-linear-gradient(90deg, yellow 10px, yellow 40px, $dark 10px, $dark 80px) 30;
-    box-shadow: 0 20px 20px rgba($primary-light, 0.7);
+    border-image:  repeating-linear-gradient(90deg, yellow 10px, yellow 40px, $dark 10px, $dark 80px) 30;
+    box-shadow: -10px 2px 20px rgba(white, 0.7),
+     10px -2px 20px rgba(white, 0.7);
     &.active {
         animation: paralax 2s ease-out;
         
