@@ -1,0 +1,32 @@
+@keyframes paralax {
+    0% {
+        transform: rotateX(-90deg);
+        
+    }
+    90% {
+         transform: rotateX(2deg);
+
+    }
+    100% {
+         transform: rotateX(0);
+
+    }
+}
+
+.site-in-building {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    font-size: 128px;
+    color: yellow;
+    transform-origin: center center 800px;
+    background-color: rgba($primary, 0.8);
+    z-index: 1;
+    border: 10px solid;
+    border-image: repeating-linear-gradient(90deg, yellow 10px, yellow 40px, $dark 10px, $dark 80px) 30;
+    box-shadow: 0 20px 20px rgba($primary-light, 0.7);
+    &.active {
+        animation: paralax 2s ease-out;
+        
+    }
+}
