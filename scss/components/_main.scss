@@ -3,7 +3,7 @@
     height: 100vh;
     position: relative;
     
-    &:before {
+    &.in-construction:before {
         content: "";
         display: block;
         position: relative;
@@ -14,7 +14,7 @@
         background-color: $primary-light;
         
     }
-    &:after {
+    &.in-construction:after {
         content: "";
         display: block;
         position: relative;

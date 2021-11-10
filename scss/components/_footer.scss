@@ -3,6 +3,7 @@ footer {
     height: auto;
     padding: 50px 0;
     background-color: $primary;
+    overflow-x: hidden;
 
     & a {
         text-decoration: none;
