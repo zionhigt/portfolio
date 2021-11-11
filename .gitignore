@@ -1,2 +1,8 @@
 scss.bat
 bootstrap-5.1.3/
+admin.sh
+deploy.js
+.ovhignore
+credential.json
+drop.bat
+ftp_deploy.ftp
