@@ -1,0 +1,14 @@
+.title {
+    text-align: center;
+    margin: 48px auto;
+    &:after {
+        content: "";
+        display: block;
+        width: 30%;
+        height: 8px;
+        border-radius: 40px;
+        background: $info;
+        margin: 15px auto;
+
+    }
+}

@@ -5,12 +5,16 @@ const logo = {
     s: logo_s,
     eb: logo_eb
 }
-console.log(logo.s.classList)
 logo.s.classList.add('active')
 logo.eb.classList.add('active')
 
 window.onload = function () {
-    const panel = document.querySelector('.site-in-building');
-    panel.classList.add('active');
+    // const panel = document.querySelector('.site-in-building');
+    // panel.classList.add('active');
+
+    const paragraphe = document.querySelectorAll(".paragraphe");
+    paragraphe.forEach(function(item) {
+        item.classList.add('apear');
+    })
 
 }

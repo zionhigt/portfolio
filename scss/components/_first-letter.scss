@@ -1,7 +1,7 @@
 @keyframes letter-spin {
     0% {
         opacity: 1;
-        transform: rotateX(360deg);
+        transform: rotateX(360deg) rotateY(-10deg);
     }
     50% {
         opacity: 0.3;
@@ -9,7 +9,7 @@
     }
     100% {
         opacity: 1;
-        transform: rotateX(0);
+        transform: rotateX(0) rotateY(-10deg);
 
     }
 }
@@ -24,17 +24,16 @@
     }
     & i{
         position: relative;
-        transform: rotateX(0);
         transform-origin: center center 20px;
     }
-     & span{
-         display: inline-block;
-         position: relative;
-         transform-origin: center center 10px;
-        }
-        & i.active, span.active{
-            animation: letter-spin linear $anim-time infinite;
-            
+    & span{
+        display: inline-block;
+        position: relative;
+        transform-origin: center center 10px;
+    }
+    & i.active, span.active{
+        animation: letter-spin linear $anim-time infinite;
+        
     }
     & a {
         z-index: 2;
