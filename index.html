@@ -34,6 +34,10 @@
                                 <a class="dropdown-item"  aria-current="page" href="https://github.com/zionhigt"><i class="fab fa-github"></i>
                                     GitHub</a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" aria-current="page" href="#myProjects">
+                                    Mes projets</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -86,68 +90,8 @@
             </div>
         </div>
     </div>
-    <section class="main row flex-column justify-content-between m-auto">
-        <div class="paragraphe w-3 col-11 m-auto mb-5 mt-5 rounded shadow-lg">
-            <h3 class="title">C'est quoi un Développeur d'applications ?</h3>
-            <p class="text-center m-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque iste aperiam tempora
-                assumenda sint eaque! Magnam ab distinctio pariatur voluptate velit alias, dolores ratione consequuntur
-                corporis. Accusantium rerum in aliquid?</p>
-        </div>
-        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg">
-            <h3 class="title">Pourquoi j'ai choisi ce metier ?</h3>
-            <p class="text-center m-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque iste aperiam tempora
-                assumenda sint eaque! Magnam ab distinctio pariatur voluptate velit alias, dolores ratione consequuntur
-                corporis. Accusantium rerum in aliquid?</p>
-        </div>
-        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg">
-            <h3 class="title">Et encore une question ?</h3>
-            <p class="text-center m-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque iste aperiam tempora
-                assumenda sint eaque! Magnam ab distinctio pariatur voluptate velit alias, dolores ratione consequuntur
-                corporis. Accusantium rerum in aliquid?</p>
-        </div>
-        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg pl-3 pr-3">
-            <h3 class="title">Mes Projets</h3>
-            <div class="row justify-content-around">
-                <h4 class="col-11 ml-3 mb-3">OpenClassrooms</h4>
-                <figure class="card shadow rounded col-12 col-md-3 pl-3 pr-3 ">
-                    <img class="card-img-top" src="./assets/images/reservia.png" alt=""/>
-                    <figcaption class="card-body p-2 pt-3">
-                        <h5 class="card-title">Reservia</h5>
-                        <p class="card-text">Projet d'intégration HTML et CSS</p>
-                        <a href="https://zionhigt.github.io/SebastienLarcherLaffont_2_13092020/" class="btn btn-transparent stretched-link"></a>
-                    </figcaption>
-                </figure>
-                <figure class="card shadow rounded col-12 col-md-3 pl-3 pr-3 posotion-relative">
-                    <img class="card-img-top" src="./assets/images/ohmyfood.png" alt="" />
-                    <figcaption class="card-body p-2 pt-3">
-                        <h5 class="card-title">Ohmyfood</h5>
-                        <p class="card-text">Projet d'intégration d'animation en CSS et découverte du SCSS</p>
-                        <a href="https://zionhigt.github.io/Sebastien_Larcher-Laffont_3_20102020/" class="btn btn-transparent stretched-link"></a>
-                    </figcaption>
-                </figure>
-                <figure class="card shadow rounded col-12 col-md-3 pl-3 pr-3 posotion-relative">
-                    <img class="card-img-top" src="./assets/images/chouette-agence.png" alt="" />
-                    <figcaption class="card-body p-2 pt-3">
-                        <h5 class="card-title">La chouette agence</h5>
-                        <p class="card-text">Projet d'optimisation, référencement, intégration, best pratices</p>
-                        <a href="https://zionhigt.github.io/Sebastien_larcher-laffont_P04_21112020/index.html"
-                            class="btn btn-transparent stretched-link"></a>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="row justify-content-around">
-                <figure class="card shadow rounded col-12 col-md-3 pl-3 pr-3 ">
-                    <img class="card-img-top" src="./assets/images/orinoco.png" alt="" />
-                    <figcaption class="card-body p-2 pt-3">
-                        <h5 class="card-title">Orinoco</h5>
-                        <p class="card-text">Création d'une plateforme e-commerce</p>
-                        <a href="https://zionhigt.github.io/Sebastien_LARCHER-LAFFONT_5_13122020/"
-                        class="btn btn-transparent stretched-link"></a>
-                    </figcaption>
-                </figure>
-                
-            </div>
-        </div>
+    <section class="main row flex-column justify-content-between m-auto pt-5 pb-5">
+        <!-- template #template-paragraphe -->
     </section>
     <footer>
         <ul class="text-light row text-md-center">
@@ -181,6 +125,36 @@
             </li>
         </ul>
     </footer>
+    <template id="template-paragraphe">
+        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-5">
+            <h3 class="title">Mes Projets</h3>
+            <!-- template #template-card-deck || <p>-->
+            <p class="text text-left m-2 p-3 bg-white rounded shadow">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque iste aperiam tempora
+                assumenda sint eaque! Magnam ab distinctio pariatur voluptate velit alias, dolores ratione consequuntur
+                corporis. Accusantium rerum in aliquid?</p>
+        </div>
+    </template>
+    <template id="template-card-deck">
+        <div class="card-deck">
+            <h4 class="col-11 ml-3 mb-3 p-10">OpenClassrooms</h4>
+            <!-- <div class="row justify-content-around">
+                template #template-card * maxCol
+            </div> -->
+        </div>
+    </template>
+    <template id="template-card">
+        <figure class="card shadow rounded col-12 col-sm-6 col-md-3 w-md-30">
+            <img class="card-img-top" src="https://i.postimg.cc/8zVCJDsQ/reservia.png" alt="" />
+            <figcaption class="card-body p-2 pt-3">
+                <h5 class="card-title">Reservia</h5>
+                <p class="card-text">Projet d'intégration HTML et CSS</p>
+            </figcaption>
+            <a href="https://zionhigt.github.io/SebastienLarcherLaffont_2_13092020/"
+                class="full-link"></a>
+        </figure>
+    </template>
+    <script src="./js/data.js"></script>
+    <script src="./js/build.js"></script>
     <script src="./js/index.js"></script>
     <script src="https://kit.fontawesome.com/56e9dc830d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -8,13 +8,25 @@ const logo = {
 logo.s.classList.add('active')
 logo.eb.classList.add('active')
 
+
+
 window.onload = function () {
+    parseData()
+    .then(function(code) {
+        if (code === 0) {
+            console.log(code)
+            const paragraphe = document.querySelectorAll(".paragraphe");
+            paragraphe.forEach(function(item) {
+                setTimeout(function() {
+                    logo.s.classList.remove('active')
+                    logo.eb.classList.remove('active')
+                }, 700);
+                item.classList.add('apear');
+            });
+        }
+    })
+    .catch(e => {console.error(e)});
     // const panel = document.querySelector('.site-in-building');
     // panel.classList.add('active');
-
-    const paragraphe = document.querySelectorAll(".paragraphe");
-    paragraphe.forEach(function(item) {
-        item.classList.add('apear');
-    })
 
 }

@@ -1,17 +1,11 @@
 .paragraphe {
     border: 1px solid $light;
-    background-color:rgba(white, 0.3);
+    background-color: $light;
     transform: rotateY(90deg);
     transform-origin: center center 3000px;
     transition: transform 2s ease-out; 
-
     &.apear {
         transform: rotateY(0);
     }
-    & figure {
-        & img {
-            width: 100%;
-            object-fit: cover;
-        }
-    }
+   
 }
