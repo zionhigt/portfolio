@@ -3,7 +3,7 @@ bootstrap-5.1.3/
 admin.sh
 .ovhignore
 credential.json
-deploy.js
 drop.bat
 ftp_deploy.ftp
 reponse.php
+.htaccess
