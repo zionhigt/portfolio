@@ -4,6 +4,8 @@ footer {
     padding: 50px 0;
     background-color: $primary;
     overflow-x: hidden;
+    position: relative;
+    z-index: 15;
 
     & a {
         text-decoration: none;

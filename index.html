@@ -41,10 +41,9 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
                             <i class="fas fa-id-card"></i> Contact
                         </button>
-                       
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
@@ -54,6 +53,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     
                             <li><a class="dropdown-item" href="#credit">Crédits photo</a></li>
+                            <li><a class="dropdown-item" href="#visitor-messages">Messages de visiteurs</a></li>
                         </ul>
                     </li>
                     </ul>
@@ -62,30 +62,17 @@
         </nav>
 
     </header>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="merciModal" tabindex="-1" aria-labelledby="merciModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Contactez moi</h5>
+                    <h5 class="modal-title" id="merciModalLabel">Votre message est posté</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="mailto:larcher501@gmail.com" method="GET" enctype="text/html">
-                        <div class="form-group pb-5">
-                            <label for="exampleInputObj">Obj</label>
-                            <input type="text" class="form-control" id="exampleInputObj" aria-describedby="emailHelp" placeholder="Coucou" name="subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputMessage">Laissez moi un message</label>
-                            <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Bonjour, " name="body"></textarea>
-                        </div>
-                        
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary-light" data-bs-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
-                        </div>
-                    </form>
+                    <div class="mb-4"><span class="text-bold text-info">Merci pour votre message</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,7 +85,9 @@
             <li class="col-12 col-sm-6 col-md-4 mb-3">
                 <span>A propos</span>
                 <ul>
-                    <li><a class="text-primary-light" href="">Contact</a></li>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
+                        <i class="fas fa-id-card"></i> Contact
+                    </button>
                 </ul>
                 
             </li>
@@ -125,6 +114,63 @@
             </li>
         </ul>
     </footer>
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Laisser un message publique</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <form id="formContact" action="http://preprod.seb-dev.tech/reponse.php" method="POST"> -->
+                    <form id="formContact" action="http://localhost/portfolio/reponse.php" method="POST">
+                        <div class="form-group pb-5">
+                            <label for="exampleInputObj">Votre nom : </label>
+                            <input type="text" class="form-control" id="exampleInputObj" aria-describedby="emailHelp"
+                                placeholder="Seb" name="name">
+                            <small class="text-info">Ce nom apparaît publiquement</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputMessage">Laissez moi un message : </label>
+                            <textarea type="text" class="form-control" id="exampleInputEmail1" name="message"
+                                aria-describedby="message" placeholder="Bonjour, "></textarea>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary-light" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                        </div>
+                    </form>
+                    <div class="mb-4"><span class="text-bold">Ou un message privé à : </span><a
+                            href="mailto://larcher501@gmail.com?subject=seb-dev.tech&body=Bonjour%20Sébastien,%0D%0A">larcher501@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template id="template-messages-stack">
+        <div id="visitorMessages" class="row justify-content-around">
+            <!-- template: #template-message -->
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
+                <i class="fas fa-id-card"></i> Contact
+            </button> -->
+        </div>
+    </template>
+    <template id="template-message">
+        <figure class="col-9 col-md-6 col-lg-4 ml-2">
+            <figcaption class=" h-100">
+                <div class="message-header">
+                    <span class="message-editor text-primary"></span>
+                </div>
+                <div class="message-body bg-white rounded h-auto">
+                    <p class="message-content text-primary-light p-2 mb-1 mt-2"></p>
+                </div>
+                <div class="message-footer">
+                    <small class="message-post-date text-grey"></small>
+                </div>
+            </figcaption>
+        </figure>
+    </template>
     <template id="template-paragraphe">
         <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-5">
             <h3 class="title">Mes Projets</h3>
@@ -153,6 +199,8 @@
                 class="full-link"></a>
         </figure>
     </template>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./js/data.js"></script>
     <script src="./js/build.js"></script>
     <script src="./js/index.js"></script>

@@ -4,8 +4,11 @@ body {
     background-image: url("https://i.postimg.cc/sfqxz5r2/blue-print.jpg");
     position: relative;
     z-index: 5;
-    backdrop-filter: blur(1px);
-    & *{
+    backdrop-filter: blur(2px);
+    & nav{
+        z-index: 15;
+    }
+    & .paragraphe{
         z-index: 10;
         position: relative;
     }
@@ -17,7 +20,11 @@ body {
         height: 100%;
         top: 0;
         background-color: $info;
-        opacity: 0.2;
+        opacity: 0.4;
         z-index: 7;
+    }
+
+    & small {
+        font-size: 12px;
     }
 }

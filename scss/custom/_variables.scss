@@ -6,7 +6,8 @@ $warning: #e08718;
 $dark: #102027;
 $success: #008800;
 $danger: #880000;
-$light: #dddddd;
+$light: #f2f2f2;
+$grey: #808080;
 
 
 $theme-colors: ();
@@ -20,7 +21,8 @@ $theme-colors: map-merge(
     "warning":    $warning,
     "danger":     $danger,
     "dark":       $dark,
-    "light":       $light
+    "light":       $light,
+    "grey":       $grey
   ),
   $theme-colors
 );
