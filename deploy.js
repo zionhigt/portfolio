@@ -36,7 +36,7 @@ const buildDeploymentImage = function() {
         `cd ${ftp.root}\r\n`
     ].join("\r\n");
     commandes.push("quit");
-    data += commandes.join("\r\n")
+    data += commandes.join("\r\n");
     fs.writeFileSync("ftp_deploy.ftp", data);
 }
 
