@@ -7,3 +7,4 @@ credential.json
 drop.bat
 ftp_deploy.ftp
 reponse.php
+.htaccess
