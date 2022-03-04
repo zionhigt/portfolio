@@ -15,7 +15,7 @@
 
 .site-in-building {
     $width: 90%;
-    $margin: (100% -$width) / 2;
+    $margin: calc((100% - $width) / 2);
     position: absolute;
     width: $width;
     top: 5%;

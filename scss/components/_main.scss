@@ -3,6 +3,7 @@
     min-height: 100vh;
     height: auto;
     position: relative;
+    overflow-x: hidden;
     
     &.in-construction:before {
         content: "";

@@ -1,11 +1,13 @@
 .paragraphe {
-    border: 1px solid $light;
-    background-color: $light;
-    transform: rotateY(90deg);
+    background: rgba($info, 0.1 );
+    box-shadow: 0 8px 24px 0 rgba(black, 0.37 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 1px);
+    transform: translateX(1000px);
     transform-origin: center center 3000px;
-    transition: transform 2s ease-out; 
+    transition: transform 0.7s linear;
     &.apear {
-        transform: rotateY(0);
+        transform: translateX(0);
     }
    
 }

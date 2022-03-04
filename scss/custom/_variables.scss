@@ -1,7 +1,9 @@
 $primary: #37474f;
-$primary-light: lighten($primary, 30%);
+$primary-light: #62727b;
 $secondary: #4e342e;
-$info:  darken(cyan, 20%);
+$info:  #009999;
+$info-light:  #459899;
+$info-dark:  #003f40;
 $warning: #e08718;
 $dark: #102027;
 $success: #008800;
@@ -13,16 +15,18 @@ $grey: #808080;
 $theme-colors: ();
 $theme-colors: map-merge(
   (
-    "primary":    $primary,
+    "primary":          $primary,
     "primary-light":    $primary-light,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "dark":       $dark,
-    "light":       $light,
-    "grey":       $grey
+    "secondary":        $secondary,
+    "success":          $success,
+    "info":             $info,
+    "info-light":       $info-light,
+    "info-dark":        $info-dark,
+    "warning":          $warning,
+    "danger":           $danger,
+    "dark":             $dark,
+    "light":            $light,
+    "grey":             $grey
   ),
   $theme-colors
 );

@@ -7,10 +7,7 @@ const data = {
                 title: "C'est quoi un Développeur d'applications ?",
                 content: lorem + lorem + lorem + lorem + lorem
             },
-            {
-                title: "Pourquoi j'ai choisi ce metier ?",
-                content: lorem
-            },
+            
             {
                 title: "Et encore une question ?",
                 content: lorem
@@ -20,12 +17,85 @@ const data = {
                 content: lorem
             },
             {
+                
+                title: "Technologies",
+                content: [
+                    {
+                        name: "Web Frontend",
+                        templateId: "templateCardDeck",
+                        content: [
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "HTML",
+                                    img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/300px-HTML5_logo_and_wordmark.svg.png",
+                                    redirect: "#",
+                                    text: "Language de structure d'interface"
+                                }
+                            },
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "CSS",
+                                    img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
+                                    redirect: "#",
+                                    text: "Language de design et de style"
+                                }
+                            },
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "Javascript",
+                                    img_src: "https://3wa.fr/wp-content/uploads/2020/04/logo-js-1-300x300.png",
+                                    redirect: "#",
+                                    text: "Language de programation d'interface"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: "Web Backend",
+                        templateId: "templateCardDeck",
+                        content: [
+                            
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "NodeJS",
+                                    img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png",
+                                    redirect: "#",
+                                    text: "Framework basé sur Javascript, scripting, REST full Api"
+                                }
+                            },
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "SQL",
+                                    img_src: "https://www.softfluent.fr/wp-content/uploads/2019/10/SQL.png",
+                                    redirect: "#",
+                                    text: "Api de base de données"
+                                }
+                            },
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "Python",
+                                    img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
+                                    redirect: "#",
+                                    text: "Django, Django REST Framework"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 title: "Mes projets",
                 id: "myProjects",
                 content: [
                     {
                         name: "OpenClassrooms",
-                        templateId: "template-card-deck",
+                        templateId: "templateCardDeck",
                         content: [
                             {
                                 templateId: "template-card",

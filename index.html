@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Je met toutes ma passion à votre service pour répondre à vos besoins.
+    Que vous aillez besoin d'une création de site internet à Caen et ses alentours,
+    d'une création de site internet à Avranches et ses alentours,
+    d'une création de site internet à Cherbourg et ses alentours.
+    En résumé, besoin d'une solution Web en Normandie ?
+    Vous êtes au bon endroit.
+    Contactez votre développeur web à Cherbourg et créons ensemble votre site internet sur mesure.">  
     <link rel="stylesheet" href="./css/style.css">
-    <title>Sébastien [PORTFOLIO][dev]</title>
+    <title>Seb-dev - [PORTFOLIO] - Développeur Web Cherbourg</title>
 </head>
 <body>
     
@@ -53,7 +60,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     
                             <li><a class="dropdown-item" href="#credit">Crédits photo</a></li>
-                            <li><a class="dropdown-item" href="#visitor-messages">Messages de visiteurs</a></li>
+                            <li><a class="dropdown-item" href="#visitorMessagesContainer">Messages de visiteurs</a></li>
                         </ul>
                     </li>
                     </ul>
@@ -79,13 +86,23 @@
     </div>
     <section class="main row flex-column justify-content-between m-auto pt-5 pb-5">
         <!-- template #template-paragraphe -->
+        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-2 p-md-5">
+            <h3 class="title p-3 pb-0 mb-0 text-white">Mes Services</h3>
+            <p class="text text-left m-2 mt-1 p-3 bg-white rounded shadow">Je met toutes ma passion à votre service pour répondre à vos besoins.
+                Que vous aillez besoin d'une création de site internet à Caen et ses alentours,
+                d'une création de site internet à Avranches et ses alentours,
+                d'une création de site internet à Cherbourg et ses alentours.
+                En résumé, besoin d'une solution Web en Normandie ?
+                Vous êtes au bon endroit.
+                Contactez votre développeur web à Cherbourg et créons ensemble votre site internet sur mesure.</p>
+        </div>
     </section>
     <footer>
         <ul class="text-light row text-md-center">
             <li class="col-12 col-sm-6 col-md-4 mb-3">
                 <span>A propos</span>
                 <ul>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
+                    <button id="footerContBtn" type="button" class="btn btn-primary">
                         <i class="fas fa-id-card"></i> Contact
                     </button>
                 </ul>
@@ -114,7 +131,7 @@
             </li>
         </ul>
     </footer>
-    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal position-fixed" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,7 +165,7 @@
             </div>
         </div>
     </div>
-    <template id="template-messages-stack">
+    <template id="templateMessageStack">
         <div id="visitorMessages" class="row justify-content-around">
             <!-- template: #template-message -->
             <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
@@ -157,7 +174,7 @@
         </div>
     </template>
     <template id="template-message">
-        <figure class="col-9 col-md-6 col-lg-4 ml-2">
+        <figure class="figure-message col-9 col-md-6 col-lg-4 ml-2 bg-light rounded shadow pt-2 pb-2">
             <figcaption class=" h-100">
                 <div class="message-header">
                     <span class="message-editor text-primary"></span>
@@ -172,24 +189,24 @@
         </figure>
     </template>
     <template id="template-paragraphe">
-        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-5">
-            <h3 class="title">Mes Projets</h3>
+        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-2 p-md-5">
+            <h3 class="title p-3 pb-0 mb-0 text-white">Mes Projets</h3>
             <!-- template #template-card-deck || <p>-->
-            <p class="text text-left m-2 p-3 bg-white rounded shadow">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque iste aperiam tempora
+            <p class="text text-left m-2 mt-1 p-3 bg-white rounded shadow">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque iste aperiam tempora
                 assumenda sint eaque! Magnam ab distinctio pariatur voluptate velit alias, dolores ratione consequuntur
                 corporis. Accusantium rerum in aliquid?</p>
         </div>
     </template>
-    <template id="template-card-deck">
+    <template id="templateCardDeck">
         <div class="card-deck">
-            <h4 class="col-11 ml-3 mb-3 p-10">OpenClassrooms</h4>
+            <h4 class="col-11 ml-3 mb-3 p-10 text-white">OpenClassrooms</h4>
             <!-- <div class="row justify-content-around">
                 template #template-card * maxCol
             </div> -->
         </div>
     </template>
     <template id="template-card">
-        <figure class="card shadow rounded col-12 col-sm-6 col-md-3 w-md-30">
+        <figure class="card shadow rounded col-12 col-sm-6 col-md-3 w-md-30 p-2">
             <img class="card-img-top" src="https://i.postimg.cc/8zVCJDsQ/reservia.png" alt="" />
             <figcaption class="card-body p-2 pt-3">
                 <h5 class="card-title">Reservia</h5>

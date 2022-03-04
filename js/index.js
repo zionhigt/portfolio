@@ -60,3 +60,11 @@ window.onload = function () {
     // panel.classList.add('active');
 
 }
+
+const footerCtnBtn = document.querySelector("#footerContBtn");
+footerCtnBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $('#messageModal').modal('toggle');
+    
+})

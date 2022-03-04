@@ -1,0 +1,23 @@
+.figure-message {
+    position: relative;
+    $becSize: 40px;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(50% - calc(#{$becSize}/2));
+        right: -$becSize;
+        width: 0;
+        height: 0;
+        border: calc(#{$becSize}/2) solid transparent;
+        border-left-color: $light;
+    }
+    &.admin-message:before {
+        top: calc(50% - (#{$becSize}/2));
+        left: -$becSize;
+        width: 0;
+        height: 0;
+        border: calc(#{$becSize}/2) solid transparent;
+        border-right-color: $light;
+    }
+}
