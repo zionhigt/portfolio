@@ -36,7 +36,6 @@ formContact.addEventListener("submit", function(event) {
         const postUrl = event.target.getAttribute("action");
         sendMessage(postUrl, options)
         .then(async function(messages) {
-            console.log(messages)
             await refreshMessages();
             $('#messageModal').modal('toggle');
             $('#merciModal').modal('toggle');
@@ -58,7 +57,6 @@ window.onload = function () {
                 setTimeout(function() {
                     logo.s.classList.remove('active')
                     logo.eb.classList.remove('active')
-                    item.classList.add('apear');
                 }, 700);
             });
         }

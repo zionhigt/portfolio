@@ -81,16 +81,14 @@ const buildArray = function(item, parent) {
 }
 
 const  isVisible = function($el) {
-    const decal = 100;
     const winTop = $(window).scrollTop();
-    const winHalf = $(window).height() / 2;
-    const winMiddle = winHalf + winTop + decal
+    const winHalf = $(window).height();
+    const winMiddle = winHalf + winTop
     const elTop = $el.offset().top;
-    return elTop <= winMiddle;
+    return elTop - 800 <= winMiddle;
   }
 
 const buildParagraphe = function(item, type) {
-    console.log(item)
     const cloneParagraphe = getJqueryTemplate('#template-paragraphe');
     const elemParagraphe = cloneParagraphe.find(".paragraphe");
     
@@ -148,7 +146,9 @@ const buildMessage = function(item) {
         if(item.name == "110690") {
             item.name = "Seb-dev";
             const figure = messageClone.find("figure");
-            figure.addClass("offset-1", "offset-md-6", "admin-message");
+            figure.addClass("bg-primary", "admin-message");
+            figure.find(".message-header span").removeClass("text-primary").addClass("text-light")
+            figure.removeClass("bg-light")
             figure.parent().addClass("justify-content-end");
             figure.parent().removeClass("justify-content-between");
 
@@ -225,17 +225,20 @@ const parseData = async function() {
     buildParagraphes(data.paragraphes);
     $(window).ready(function(ev) {
         const $paragraphes = $("section.main").children();
-        $($paragraphes[0]).addClass("apear")
-        $(window).scroll(function() {
-            $paragraphes.filter(function() {
-                return !$(this).hasClass('apear');
-            }).each(function() {
-                $el = $(this);
-                if(isVisible($el)) {
-                    $el.addClass("apear")
-                }
-            })
-        }.bind(this));
+        $($paragraphes).each(function() {
+            $(this).addClass("apear");
+        });
+        // $(window).scroll(function() {
+        //     $paragraphes.filter(function() {
+        //         return !$(this).hasClass('apear');
+        //     }).each(function() {
+        //         $el = $(this);
+        //         console.log($el.attr('id'))
+        //         if(isVisible($el)) {
+        //             $el.addClass("apear")
+        //         }
+        //     })
+        // }.bind(this));
     })
     await refreshMessages();
     return 0;
