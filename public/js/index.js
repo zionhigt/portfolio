@@ -11,7 +11,7 @@ logo.eb.classList.add('active');
 const formContact = document.querySelector("#formContact");
 const sendMessage = async function(url, options) {
     const post = await fetch(url, options);
-    return post.json();
+    return await post.json();
 }
 
 formContact.addEventListener("submit", function(event) {
@@ -21,14 +21,22 @@ formContact.addEventListener("submit", function(event) {
 
     if(confirmPublish) {
         const formData = new FormData(event.target);
+        const body = {};
+        formData.forEach(function(v, k) {
+            body[k] = v;
+        })
         const options = {
             method: event.target.getAttribute("method"),
-            body: formData
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
         }
 
         const postUrl = event.target.getAttribute("action");
         sendMessage(postUrl, options)
         .then(async function(messages) {
+            console.log(messages)
             await refreshMessages();
             $('#messageModal').modal('toggle');
             $('#merciModal').modal('toggle');

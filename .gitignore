@@ -6,3 +6,5 @@ drop.bat
 ftp_deploy.ftp
 reponse.php
 .htaccess
+node_modules/
+package-lock.json

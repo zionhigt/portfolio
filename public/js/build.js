@@ -90,7 +90,7 @@ const  isVisible = function($el) {
   }
 
 const buildParagraphe = function(item, type) {
-
+    console.log(item)
     const cloneParagraphe = getJqueryTemplate('#template-paragraphe');
     const elemParagraphe = cloneParagraphe.find(".paragraphe");
     
@@ -138,30 +138,27 @@ const buildParagraphes = async function(items) {
     }
 };
 
-const buildMessage = function(item, parent) {
+const buildMessage = function(item) {
     if (item.hasOwnProperty("templateId") && item.templateId == "template-message") {
-        const messageTemplate = document.querySelector("#template-message");
-        const messageClone = document.importNode(messageTemplate.content, true);
-        
-        const message_content = messageClone.querySelector("figure figcaption p.message-content");
-        message_content.innerHTML = item.text;
+        const messageClone = getJqueryTemplate("#template-message");
+
+        const message_content = messageClone.find("figure figcaption p.message-content");
+        message_content.text(item.text);
 
         if(item.name == "110690") {
             item.name = "Seb-dev";
-            const figure = messageClone.querySelector("figure");
-            figure.classList.add("offset-1", "offset-md-6", "admin-message");
-            console.log(parent)
-            parent.classList.add("justify-content-end");
-            parent.classList.remove("justify-content-between");
+            const figure = messageClone.find("figure");
+            figure.addClass("offset-1", "offset-md-6", "admin-message");
+            figure.parent().addClass("justify-content-end");
+            figure.parent().removeClass("justify-content-between");
 
         }
-        const message_editor = messageClone.querySelector("figure figcaption span.message-editor");
-        message_editor.innerHTML = item.name;
+        const message_editor = messageClone.find("figure figcaption span.message-editor");
+        message_editor.text(item.name);
 
-        const message_date = messageClone.querySelector("figure figcaption small.message-post-date");
-        const clean_date = (new Date(item.datePost * 1000));
-        message_date.innerHTML = `${clean_date.toLocaleDateString()} à ${clean_date.toLocaleTimeString()}`;
-        // message_date.style.fontSize = "12px";
+        const message_date = messageClone.find("figure figcaption small.message-post-date");
+        const clean_date = (new Date(item.datePost));
+        message_date.text(`${clean_date.toLocaleDateString()} à ${clean_date.toLocaleTimeString()}`);
 
         return messageClone;
     }
@@ -194,33 +191,33 @@ const buildCard = function(item) {
 
 const getMessages = async function() {
     // const request = await fetch("http://preprod.seb-dev.tech/reponse.php?all=1");
-    const request = await fetch("http://localhost/portfolio/reponse.php?all=1");
+    const request = await fetch("/messages");
     return await request.json();
     
 }
 
 const refreshMessages = async function(){
-    const parent = document.querySelector("section.main");
-    const messageView = parent.querySelector("#visitorMessages");
-    if(messageView != null) {
-        // console.log(messageView.parentNode)
-        parent.removeChild(messageView.parentNode);
+    const parent = $("section.main");
+    const messageView = parent.find("#visitorMessages");
+    if(messageView.length > 0) {
+        messageView.parent().remove();
     }
     let visitorMessages = await getMessages();
-    if (visitorMessages.messages.length > 0) {
+    if (visitorMessages.length > 0) {
         const paragrapheOptions = {
-            templateId: "template-messages-stack",
-            content: visitorMessages.messages.map(function (item) {
+            templateId: "templateMessageStack",
+            content: visitorMessages.map(function (item) {
                 return {
                     templateId: "template-message",
                     text: item.message,
                     name: item.name,
-                    datePost: item.write_at
+                    datePost: item.writeAt
                 }
             })
         }
         const paragrapheMessages = buildParagraphe({ title: "Messages de visiteurs", content: [paragrapheOptions] }, "array");
-        parent.appendChild(paragrapheMessages);
+        paragrapheMessages.addClass('apear')
+        parent.append(paragrapheMessages);
     }
     return parent;
 }
@@ -243,20 +240,3 @@ const parseData = async function() {
     await refreshMessages();
     return 0;
 };
-
-
-const req = {
-    body: {
-        
-    }
-}
-
-try {
-    if(req.body.userId && req.body.userId !== 3) {
-        throw new Error("Invalid user id");
-    } else {
-        console.log("Authorisé");
-    }
-} catch(e) {
-    console.log(e);
-}
