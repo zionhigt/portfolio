@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="file:///C:/Users/larch/pdf-generator/pdf-maker/templates/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header-2">
+            <div class="header__element company_logo"><%- include('./assets/logo/drawing.svg') %></div>
+            <h3 class="header__element">Devis n° <%= data.quotation.ref %></h3>
+        </div>
+    </header>
+    <section class="lead">
+        <div class="container-2">
+            <table>
+                <tr>
+                    <td class="company--name"><%= config.company.name %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="company--street"><%= config.company.address %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="company--mail">
+                        <span class="company--mail"><%= config.company.email %></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="company--phone">
+                        <span class="company--phone"><%= config.company.phone %></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="company--phone">
+                        <span class="company--phone"><%= config.company.website %></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="company--country"><%= config.company.country %></td>
+                </tr>
+            </table>
+            <table class="customer">
+                <% if(data.lead.isCompany){ %>
+                    <tr>
+                        <td class="lead--tvaImat">N° TVA: <%= data.lead.tvaImat %></td>
+                    </tr>
+                    <tr>
+                        <td class="lead--siren">SIREN: <%= data.lead.SIREN %></td>
+                    </tr>
+                <%}%>
+                <tr>
+                    <td class="lead--name"><%= data.lead.fullName %></td>
+                </tr>
+                <tr>
+                    <td class="lead--street"><%= data.lead.address %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lead--place"> 
+                        <span class="lead--zipcode"><%= data.lead.zipcode %></span>
+                        <span class="lead--city"><%= data.lead.city %></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lead--country"><%= data.lead.country %></td>
+                </tr>
+                <tr>
+                    <td class="lead--mail">
+                        <span class="lead--mail"><%= data.lead.email %></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lead--phone">
+                        <span class="lead--phone"><%= data.lead.phone %></span>
+                    </td>
+                </tr>
+            </table>
+            <div class="mission">
+                <h3><%= data.quotation.subject %></h3>
+            </div>
+        </div>
+    </section>
+    <section class="details">
+        <span class="base_cost">TJM TTC: <span class="price"></span><%= config.base %></span>,  
+        <span class="device_cost">Devise: <span class="device"></span><%= config.device %></span>
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Jours </th>
+                <th>Sous-total (HT)</th>
+                <th>% TVA</th>
+                <th>Total TTC</th>
+            </tr>
+            <% data.services.forEach(function(service){ %>
+                <tr>
+                    <td><%= service.description %></td>
+                    <td><%= service.time %></td>
+                    <td><%= service.untaxed %></td>
+                    <td><%= service.taxeAmount %></td>
+                    <td><%= service.taxed %></td>
+                </tr>
+                <% }); %>
+                <tr>
+                    <td class="td_empty" colspan="3"></td>
+                    <td colspan="2">
+                        <table class="total">
+                            <tr>
+                                <th colspan="2">Total</th>
+                            </tr>
+                            <tr>
+                                <td>JOURS</td>
+                        <td><%= data.total.days %> J</td>
+                    </tr>
+                    <tr>
+                        <td>HT</td>
+                        <td><%= data.total.untaxed %> €</td>
+                    </tr>
+                    <tr>
+                        <td>TVA</td>
+                        <td><%= data.total.taxeAmount %> %</td>
+                    </tr>
+                    <tr>
+                        <td>TTC</td>
+                        <td><%= data.total.taxed %> €</td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <span class="base_cost"><span></span>Paiement à la livraison</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <span class="base_cost"><span></span>Valable du <%= data.quotation.dateStart %> au <%= data.quotation.dateEnd %></span>
+                </td>
+            </tr>
+            
+        </table>
+        
+    </section>
+    <section class="container-2">
+        <div>
+            <div class="payway">
+                <span>
+                    Moyens de payment:
+                </span>
+                <ul>
+                    <li>- chéques</li>
+                    <li>- éspèces</li>
+                    <li>- virement bancaire</li>
+                    <li>- carte bancaire</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sign">
+            <p>Pour le client</p>
+            <div class="sign--box">
+                <p>Mention "Bon pour accord", date et signature</p>
+                <br/>
+                <br/>
+                <br/>
+                <p>....../....../............</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="company_infos">
+            <span><%= config.company.status %> |</span>
+            <span><%= config.company.name %> |</span>
+            <span>SIREN: <%= config.company.siren %> |</span>
+            <span><%= config.company.email %> |</span>
+            <span><%= config.company.phone %> |</span>
+            <span><%= config.company.website %></span>
+
+        </div>
+    </footer>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+            padding: 2em 0.8em;
+            box-sizing: border-box;
+            color: #333333;
+            height: 367mm;
+        }
+
+        .details table.total tr td:nth-child(1),
+        .header-2 .header__element,
+        .lead .container-2 table,
+        .sign,
+        .payway {
+            width: 49.999%;
+            
+        }
+        
+        .lead table.customer,
+        .header-2 .header__element:last-child,
+        .sign,
+        footer {
+            position: absolute;
+        }
+
+        .details table,
+        .header-2 .header__element:last-child,
+        footer {
+            text-align: center;
+        }
+
+        .mission,
+        .details {
+            margin-top: 5em;
+
+        }
+
+        .details table,
+        .header-2,
+        .container-2,
+        footer {
+            width: 100%;
+        }
+
+        .header-2 .header__element:last-child {
+            right: 0;
+            bottom: 0;
+            
+        }
+        .payway {
+            font-size: 0.8em;
+            margin: 0;
+        }
+        .payway ul li {
+            list-style-type: none;
+        }
+        .sign {
+            right: 0.8em;
+            top: 0;
+        }
+        .sign p {
+            margin: 0.4em 0;
+        }
+
+        .sign--box {
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            padding: 0.6em;
+        }
+
+        .container-2 {
+            margin-top: 3em;
+        }
+
+        footer {
+            left: 0;
+            border-top: 3px solid #909090;
+            color: #909090;
+            font-size: 0.6em;
+            bottom: 0;
+        }
+
+        .header-2 .header__element,
+        .lead .container-2 table {
+            margin: 0;
+        }
+
+        body,
+        .header-2 .header__element:first-child,
+        .header-2, .container-2 {
+            position: relative;
+            
+        }
+
+        .lead .container-2 table,
+        .header-2, .container-2{
+            display: inline-block;
+        }
+        
+        .header-2 .header__element:first-child {
+            top: 0;
+            left: 0;
+            
+        }
+
+        .details table.total tr td,
+        .lead,
+        .details,
+        .sign {
+            font-size: 0.8em;
+        }
+
+        .lead  {
+            margin-top: 3em;
+        }
+
+        .details table tr,
+        table.customer {
+            border: none;
+            padding: 0.4em 0.2em;
+            background-color: #dbdbdb;
+            border-radius: 0.5em;
+        }
+
+
+        .details table tr td.td_empty,
+        .details table tr:nth-child(even) {
+            background-color: white;
+        }
+
+        .details table tr th{
+            background-color: #09525c;
+            color: #f2f2f2;
+        }
+        .company_logo svg{
+            max-width: 50%;
+            max-height: 8em;
+            top: -45px;
+            position: absolute;
+        }
+
+        table {
+            border-radius: 0.5em;
+        }
+
+    </style>
+</body>
+</html>

@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
-
+const PdfBuilder = require('pdf-maker/builder/pdfbuilder');
+const TemplateMaker = require('pdf-maker/templating/make');
+const Quotation = require('pdf-maker/models/quotation');
 const fs = require("fs");
 const Messages = require('./models/messages/messages')
-
+const path = require('path')
 
 app.use((req, res, next)=>{
 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost');
@@ -49,5 +51,25 @@ app.post('/messages', (req, res) => {
 
     })
 });
+
+app.get('/quotation', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/quotation.html'))
+})
+app.post('/quotation', (req, res) => {
+    const templatePath = path.resolve("./pdf-maker/templates/invoice.html")
+    const data = require(path.resolve('./pdf-maker/data.json'))
+    data.lead = req.body;
+    data.lead.isCompany = req.body.isCompany == "true" ? 1 : 0;
+    const quotation = new Quotation(data, require(path.resolve('./pdf-maker/config.json')));
+    const template = new TemplateMaker(quotation.get(), templatePath);
+    template.make()
+    .then(async (html) => {
+        const pdf = new PdfBuilder(html, './res.pdf');
+        await pdf.build();
+    })
+    .catch(err => {
+        res.status(500).json({meesage: "Internal server error"})
+    });
+})
 
 module.exports = app;

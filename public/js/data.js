@@ -134,6 +134,21 @@ const data = {
                                 }
                             }
                         ]
+                    },
+                    {
+                        name: "Projects personnel",
+                        templateId: "templateCardDeck",
+                        content: [
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "Génerateur de devis",
+                                    img_src: "",
+                                    redirect: "/quotation",
+                                    text: "Demmande de devis (Simulation)"
+                                }
+                            }
+                        ]
                     }
                 ]
             }

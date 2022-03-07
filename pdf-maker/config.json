@@ -1,0 +1,14 @@
+{
+    "device": "EUR; €",
+    "base": 200,
+    "taxeAmount": 20,
+    "company": {
+        "status": "EI",
+        "country": "France",
+        "name": "Seb-dev",
+        "siren": "xxxxxxxxxx",
+        "phone": "0662164158",
+        "email": "company@sale.com",
+        "website": "https://seb-dev.tech"
+    }
+}

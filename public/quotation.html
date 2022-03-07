@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>seb-dev [Demmande de devis]</title>
+</head>
+<body>
+    <!-- "lead": {
+        "fullName": "Jean DUPONT",
+        "address": "20 rue delaville",
+        "zipcode": "50100",
+        "city": "CELLEDUNORD",
+        "country": "FRANCE",
+        "email": "lead@quotation.com",
+        "phone": "0600000000",
+        "SIREN": "xxxx-xxxx-xxxxx",
+        "tvaImat": "xxxxxx-xxxxxx-xxxxxx",
+        "isCompany": 0
+    }, -->
+    <section class="d-flex align-items-center flex-column nowrap">
+        <h1 class="text-white text-center p-2">Demande devis (Simulation)</h1>
+        <form id="leadForm" class="bg-primary text-light rounded shadow p-3 w-50 d-flex flex-column align-items-end justify-content-around" action="">
+            <div class="form-group mb-1 align-self-center p-2 h5 mb-3">
+                <label for="isCompany">Vous étes une entreprise ?</label>
+                <input type="checkbox" name="isCompany" id="isCompany">
+            </div>
+            <div class="form-group mb-1">
+                <label for="fullName">Votre nom et prénom :</label>
+                <input type="text" name="fullName" id="fullName">
+            </div>
+            <div class="form-group mb-1">
+                <label for="address">Votre adresse</label>
+                <input type="text" name="address" id="address">
+            </div>
+            <div class="form-group mb-1">
+                <label for="zipcode">Code postal de l'adresse</label>
+                <input type="text" name="zipcode" id="zipcode">
+            </div>
+            <div class="form-group mb-1">
+                <label for="city">Ville de l'adresse</label>
+                <input type="text" name="city" id="city">
+            </div>
+            <div class="form-group mb-1">
+                <label for="country">Pays de l'adresse</label>
+                <input type="text" name="country" id="country">
+            </div>
+            <div class="form-group mb-1">
+                <label for="email">Votre E-mail</label>
+                <input type="mail" name="email" id="email">
+            </div>
+            <div class="form-group mb-1">
+                <label for="phone">Votre N° de téléphone</label>
+                <input type="tel" name="phone" id="phone">
+            </div>
+            <div class="form-group mb-1 company-fields d-none">
+                <label for="SIREN">Votre numero SIREN</label>
+                <input type="text" name="SIREN" id="SIREN">
+            </div>
+            <div class="form-group mb-1 company-fields d-none">
+                <label for="tvaImat">Votre n° de TVA</label>
+                <input type="text" name="tvaImat" id="tvaImat">
+            </div>
+            <div class="form-group mb-1 d-flex w-100 justify-content-between align-items-end">
+                <div class="align-self-start">
+                    <a class="text-info" href="/">Retouner sur seb-dev.tech</a>
+                </div>
+                <div class="mb-1 align-self-end">
+                    <input class="btn btn-info text-light" type="submit" id="submitLead" value="Valider">
+                </div>
+            </div>
+        </form>
+    </section>
+    <script src="./js/quotation.js"></script>
+</body>
+</html>

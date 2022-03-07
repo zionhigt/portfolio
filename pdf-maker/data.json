@@ -1,0 +1,44 @@
+{
+    "quotation": {
+        "no": "1",
+        "subject": "Création d'une application Web"
+    },
+    "lead": {
+        "fullName": "Jean DUPONT",
+        "address": "20 rue delaville",
+        "zipcode": "50100",
+        "city": "CELLEDUNORD",
+        "country": "FRANCE",
+        "email": "lead@quotation.com",
+        "phone": "0600000000",
+        "SIREN": "xxxx-xxxx-xxxxx",
+        "tvaImat": "xxxxxx-xxxxxx-xxxxxx",
+        "isCompany": 0
+    },
+    "services": [
+        {
+            "name": "Pages Web",
+            "description": "Page de présentation de la gamme xxxx",
+            "time": "3",
+            "price": 600
+        },
+        {
+            "name": "Animations",
+            "description": "Animations sur mesure",
+            "time": "1",
+            "price": 200
+        },
+        {
+            "name": "Pages Web",
+            "description": "Page de présentation de la gamme xxxx",
+            "time": "3",
+            "price": 600
+        },
+        {
+            "name": "Animations",
+            "description": "Animations sur mesure",
+            "time": "1",
+            "price": 200
+        }
+    ]
+}
