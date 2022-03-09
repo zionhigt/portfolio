@@ -4,19 +4,6 @@ const data = {
         templateId: "template-paragraphe",
         content: [
             {
-                title: "C'est quoi un Développeur d'applications ?",
-                content: lorem + lorem + lorem + lorem + lorem
-            },
-            
-            {
-                title: "Et encore une question ?",
-                content: lorem
-            },
-            {
-                title: "Et encore une autre question ?",
-                content: lorem
-            },
-            {
                 
                 title: "Technologies",
                 content: [

@@ -49,6 +49,12 @@ formContact.addEventListener("submit", function(event) {
 
 
 window.onload = function () {
+    const cookieWindow = document.querySelector("#cookieConsent");
+    cookieConsent.classList.remove("d-none");
+    const cookieBtn = cookieConsent.querySelector(".btn-primary");
+    cookieBtn.addEventListener("click", function() {
+        cookieConsent.classList.add("d-none");
+    });
     parseData()
     .then(function(code) {
         if (code === 0) {
