@@ -215,7 +215,11 @@ const refreshMessages = async function(){
                 }
             })
         }
-        const paragrapheMessages = buildParagraphe({ title: "Messages de visiteurs", content: [paragrapheOptions] }, "array");
+        const paragrapheMessages = buildParagraphe({
+            title: "Messages de visiteurs",
+            id: "visitorsMessages",
+            content: [paragrapheOptions]
+        }, "array");
         paragrapheMessages.addClass('apear')
         parent.append(paragrapheMessages);
     }

@@ -4,7 +4,6 @@ const app = express();
 const fs = require("fs");
 const Messages = require('./models/messages/messages')
 
-
 app.use((req, res, next)=>{
 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost');
 	res.setHeader('Access-Control-Allow-Headers', 'multipart/form-data, x-www-urlencode, x-Content-Type,  Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -28,21 +27,30 @@ app.get('/messages', (req, res) => {
     })
 });
 
+
 app.post('/messages', (req, res) => {
     Messages.getPostedMessages()
-    .then(data => {
+    .then(async data => {
+        const name = escape(req.body.name.trim());
+        const message = escape(req.body.message.trim());
         const postedMessage = {
-            ...req.body,
+            name: name,
+            message: message,
             writeAt: Date.now()
         }
         
-        Messages.create(postedMessage)
-        then(() => {
-            res.status(201).json({message: "Message posté"});
-        })
-        .catch(err => {
-            throw err;
-        });
+        if(!!name && !!message) {
+            try {
+                await Messages.create(postedMessage);
+                res.status(201).json({message: "Message posté"});
+            }
+            catch(err) {
+                console.log(err)
+                throw new Error(err);
+            }
+        } else {
+            throw new Error("Bad request");
+        }
     })
     .catch(err => {
         res.status(400).json(err);

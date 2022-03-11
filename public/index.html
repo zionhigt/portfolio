@@ -69,7 +69,9 @@
         </nav>
 
     </header>
-
+    <div id="elevator" class="fixed-bottom d-flex justify-content-end p-2 h3">
+        <a href="#" class="btn btn-dark"><i class="fas fa-angle-up text-light"></i></a>
+    </div>
     <div class="modal fade" id="merciModal" tabindex="-1" aria-labelledby="merciModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -86,8 +88,8 @@
     </div>
     <section class="main row flex-column justify-content-between m-auto pt-5 pb-5">
         <!-- template #template-paragraphe -->
-        <div class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-2 p-md-5">
-            <h3 class="title p-3 pb-0 mb-0 text-white">Mes Services</h3>
+        <div id="skills" class="paragraphe w-3 col-11 m-auto mb-5 rounded shadow-lg p-2 p-md-2 p-md-5">
+            <h3 class="title p-3 pb-0 mb-0 text-white">Mes Compétences</h3>
             <p class="text text-left m-2 mt-1 p-3 bg-white rounded shadow">Je met toutes ma passion à votre service pour répondre à vos besoins.
                 Que vous aillez besoin d'une création de site internet à Caen et ses alentours,
                 d'une création de site internet à Avranches et ses alentours,
@@ -105,17 +107,26 @@
                 <span>A propos</span>
                 <ul>
                     <li>
-                        <button id="footerContBtn" type="button" class="btn btn-primary">
-                            <i class="fas fa-id-card"></i> Contact
-                        </button>
+                        <a id="footerContBtn" href="" class="text-info">Contact</a>
                     </li>
-                    <li><a href="/mentions-legales.html" class="text-light">Mentions légales</a></li>
+                    <li><a href="/mentions-legales.html" class="text-info">Mentions légales</a></li>
                 </ul>
                 
             </li>
             <li class="col-12 col-sm-6 col-md-4 mb-3">
+                <span>Plan du site</span>
                 <ul>
-                    <li><a class="text-primary-light" href="https://pixabay.com/fr/users/thedigitalartist-202249/"><span>Crédits photo: </span>TheDigitalArtist</a></li>
+                    <li><a href="#skills" class="text-info">Mes compétences</a></li>
+                    <li><a href="#technologies" class="text-info">Téchnologies maîtrisées</a></li>
+                    <li><a href="#myProjects" class="text-info">Projects</a></li>
+                    <li><a href="#visitorsMessages" class="text-info">Messages de visiteurs</a></li>
+                </ul>
+                
+            </li>
+            <li class="col-12 col-sm-6 col-md-4 mb-3">
+                <span>Crédits photo: </span>
+                <ul>
+                    <li><a class="text-info" href="https://pixabay.com/fr/users/thedigitalartist-202249/">TheDigitalArtist</a></li>
                 </ul>
             
             </li>

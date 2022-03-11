@@ -15,7 +15,17 @@ footer {
         }
     }
 
-    & li {
-        list-style-type: none;
+    & ul {
+        padding-left: 1rem!important;
+        & li {
+            list-style-type: none;
+            text-align: left;
+    
+            & span:first-child {
+                font-weight: bold;
+                color: $light;
+    
+            }
+        }
     }
 }

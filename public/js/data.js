@@ -6,6 +6,7 @@ const data = {
             {
                 
                 title: "Technologies",
+                id: "technologies",
                 content: [
                     {
                         name: "Web Frontend",
