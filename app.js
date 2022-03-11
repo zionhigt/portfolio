@@ -31,8 +31,8 @@ app.get('/messages', (req, res) => {
 app.post('/messages', (req, res) => {
     Messages.getPostedMessages()
     .then(async data => {
-        const name = escape(req.body.name.trim());
-        const message = escape(req.body.message.trim());
+        const name = req.body.name.trim();
+        const message = req.body.message.trim();
         const postedMessage = {
             name: name,
             message: message,
