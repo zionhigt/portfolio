@@ -8,4 +8,5 @@ reponse.php
 .htaccess
 node_modules/
 package-lock.json
-models/data/messages/messages.json
+models/data/messages.json
+.env/.env

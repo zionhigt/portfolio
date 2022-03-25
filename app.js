@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-
+const fetch = require('fetch');
 const fs = require("fs");
-const Messages = require('./models/messages/messages')
+const Messages = require('./models/messages/messages');
+const TMDB = require('./models/TMDB/model');
 
 app.use((req, res, next)=>{
 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost');
@@ -58,4 +59,15 @@ app.post('/messages', (req, res) => {
     })
 });
 
+
+app.get("/TMDB", (req, res) => {
+    tmdb = new TMDB();
+    // tmdb.get("/3/movie/550")
+    tmdb.getTrending()
+    .then(function(response) {
+        res.status(200).send(response.body.toString());
+        
+    })
+    .catch(err => {console.log(err)})
+})
 module.exports = app;
