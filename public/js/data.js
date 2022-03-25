@@ -120,6 +120,15 @@ const data = {
                                     redirect: "https://zionhigt.github.io/Sebastien_LARCHER-LAFFONT_5_13122020/",
                                     text: "Création d'une plateforme e-commerce"
                                 }
+                            },
+                            {
+                                templateId: "template-card",
+                                content: {
+                                    title: "JustStreamIt",
+                                    img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png",
+                                    redirect: "https://zionhigt.github.io/Sebastien_Larcher-Laffont_DAP_P6/",
+                                    text: "Création d'un catalogue video. Api restful adapté en NodeJS"
+                                }
                             }
                         ]
                     }
