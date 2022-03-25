@@ -9,4 +9,5 @@ reponse.php
 node_modules/
 package-lock.json
 models/data/messages.json
+portfolio-start.sh
 .env/.env

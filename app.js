@@ -67,12 +67,29 @@ app.get("/TMDB/categories", (req, res) => {
     // tmdb.getTrending()
     tmdb.getCategoriesList()
     .then(function(response) {
+        console.log(response.map(function(item) {
+            return {
+                name: item.name,
+                moviesData: item.data.body.results.filter(function(movie) {
+                    return movie.backdrop_path !== null || movie.poster_path !== null;
+                })
+            }
+        })
+        .filter(function(category) {
+            return category.moviesData.length >= 7;
+        }))
         
         res.status(200).json(response.map(function(item) {
             return {
                 name: item.name,
                 moviesData: item.data.body.results.filter(function(movie) {
-                    return movie.backdrop_path !== null;
+                    return movie.backdrop_path !== null || movie.poster_path !== null;
+                }).map(function(movie) {
+                    let backdrop = movie.backdrop_path;
+                    if(backdrop == null) {
+                        backdrop = movie.poster_path;
+                    }
+                    return {...movie, backdrop_path: backdrop}
                 })
             }
         })
@@ -93,6 +110,19 @@ app.get("/TMDB/movie/:id", (req, res) => {
     // tmdb.getTrending()
     tmdb.getMovie(req.params.id)
     .then(function(response) {
+        res.status(200).json(response.body);
+    })
+    .catch(err => {
+        console.log(err);
+        const error = new Error(err);
+        res.status(500).json({ error });
+    });
+})
+app.get("/TMDB/trending", (req, res) => {
+    tmdb = new TMDB("fr-FR");
+    tmdb.getTrending()
+    .then(function(response) {
+        console.log(response)
         res.status(200).json(response.body);
     })
     .catch(err => {
