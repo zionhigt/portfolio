@@ -110,6 +110,9 @@ app.get("/TMDB/movie/:id", (req, res) => {
     // tmdb.getTrending()
     tmdb.getMovie(req.params.id)
     .then(function(response) {
+        if(response.body.backdrop_path == null) {
+            response.body.backdrop_path = response.body.poster_path;
+        }
         res.status(200).json(response.body);
     })
     .catch(err => {
