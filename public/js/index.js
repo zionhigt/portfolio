@@ -66,7 +66,6 @@ formContact.addEventListener("submit", function(event) {
     })
 });
 
-
 window.onload = function () {
     const cookieWindow = document.querySelector("#cookieConsent");
     cookieConsent.classList.remove("d-none");
@@ -87,6 +86,9 @@ window.onload = function () {
         }
     })
     .catch(e => {console.error(e)});
+
+    TMDB();
+
 }
 
 const footerCtnBtn = document.querySelector("#footerContBtn");
