@@ -6,8 +6,8 @@ const Messages = require('./models/messages/messages');
 const TMDB = require('./models/TMDB/model');
 
 app.use((req, res, next)=>{
-	res.setHeader('Access-Control-Allow-Origin', 'http://localhost');
-	res.setHeader('Access-Control-Allow-Headers', 'multipart/form-data, x-www-urlencode, x-Content-Type,  Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Headers', 'x-www-urlencode, x-Content-Type,  Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 	res.setHeader('Access-Control-Allow-Credentials', 'true');
 	next();
@@ -60,14 +60,45 @@ app.post('/messages', (req, res) => {
 });
 
 
-app.get("/TMDB", (req, res) => {
-    tmdb = new TMDB();
+app.get("/TMDB/categories", (req, res) => {
+    tmdb = new TMDB("fr-FR");
     // tmdb.get("/3/movie/550")
-    tmdb.getTrending()
+    // tmdb.discoverMovie()
+    // tmdb.getTrending()
+    tmdb.getCategoriesList()
     .then(function(response) {
-        res.status(200).send(response.body.toString());
         
+        res.status(200).json(response.map(function(item) {
+            return {
+                name: item.name,
+                moviesData: item.data.body.results.filter(function(movie) {
+                    return movie.backdrop_path !== null;
+                })
+            }
+        })
+        .filter(function(category) {
+            return category.moviesData.length >= 7;
+        }));
     })
-    .catch(err => {console.log(err)})
+    .catch(err => {
+        console.log(err);
+        const error = new Error(err);
+        res.status(500).json({ error });
+    });
+})
+app.get("/TMDB/movie/:id", (req, res) => {
+    tmdb = new TMDB("fr-FR");
+    // tmdb.get("/3/movie/550")
+    // tmdb.discoverMovie()
+    // tmdb.getTrending()
+    tmdb.getMovie(req.params.id)
+    .then(function(response) {
+        res.status(200).json(response.body);
+    })
+    .catch(err => {
+        console.log(err);
+        const error = new Error(err);
+        res.status(500).json({ error });
+    });
 })
 module.exports = app;
