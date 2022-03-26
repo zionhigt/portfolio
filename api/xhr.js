@@ -2,8 +2,8 @@ const fetch = require('fetch');
 
 /**
  * Wrap fetch function as Promise
- * @param {*} url 
- * @param {*} options 
+ * @param {String} url 
+ * @param {Object} options 
  * @returns new Promise
  */
 exports.asyncXhr = function(url, options={}) {

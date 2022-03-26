@@ -35,9 +35,9 @@ class TMDB{
     }
     /**
      * Prepare request url and options
-     * @param {*} path 
-     * @param {*} params 
-     * @returns 
+     * @param {String} path 
+     * @param {Array(String)} params 
+     * @returns {Object(url: String, options: Object(params: String, options: Object(headers: Object(Autorization: Token))))}
      */
     _buildRequest(path, params=[]) {
         const authOptions = this._getAuthOptions()
@@ -78,7 +78,7 @@ class TMDB{
         const request = this._buildRequest("/3/genre/movie/list");
         const list =  await asyncXhr(request.url, request.options);
         const categoryPromises = list.body.genres.map(categoryDigest => {
-            return this.getCategory(categoryDigest.name);
+            return this.getCategory(categoryDigest);
         });
         return Promise.all(categoryPromises);
     }
@@ -97,18 +97,23 @@ class TMDB{
         const request = this._buildRequest("/3/discover/movie", params);
         return asyncXhr(request.url, request.options);
     }
-    async getCategory(name) {
+    async getCategory(genre) {
         const params = [
-            "sort_by=-vote_average",
+            "sort_by=release_date",
             "include_adult=false",
             "include_video=false",
             "page=1",
-            "with_genre=" + name
+            "with_genres=" + genre.id
         ]
         const request = this._buildRequest("/3/discover/movie", params);
-        return Promise.resolve({name, data: await asyncXhr(request.url, request.options)});
+        return Promise.resolve({name: genre.name, data: await asyncXhr(request.url, request.options)});
     }
-    async getMovie(id) {
+    /**
+     * GET movie by id
+     * @param {int} id 
+     * @returns Promise asyncXhr()
+     */
+    getMovie(id) {
         const request = this._buildRequest(`/3/movie/${id}`);
         return asyncXhr(request.url);
     }
