@@ -1,0 +1,144 @@
+:root {
+    --dark: #454545;
+    --dark-grey: #a9a9a9;
+}
+
+body {
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+header {
+    height: 5vh;
+}
+main {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateY(0);
+    }
+    33% {
+        transform: translateY(-100vh);
+    }
+    66% {
+        transform: translateY(-200vh);
+    }
+    100% {
+        transform: translateY(-300vh);
+    }
+}
+
+main .container {
+    animation: scrolling 5s 0s ease-in-out alternate;
+    /* transform: translateY(-200vh); */
+    display: grid;
+    grid-template-rows: repeat(4, 100vh);
+} 
+section.view {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 1.5rem;
+}
+
+section.view {
+    height: 95vh;
+}
+
+header {
+    display: flex;
+    position: relative;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: space-around;
+    /* max-height: 100vh; */
+}
+
+header ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--dark)
+}
+
+header ul li {
+    margin-left: 10px;
+    list-style-type: none;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+header ul li:first-child, header ul li:hover {
+    border-bottom: 1px solid var(--dark);
+}
+
+section.view.head h1 {
+    font-family: 'Train One', cursive;
+    font-size: 9rem;
+    color: var(--dark-grey);
+    text-align: center;
+}
+
+
+
+section.view div.paragraphe {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+}
+
+section.view div h3,
+section.view div p {
+    font-size: 1.4rem;
+    padding: 0 50px;
+    color: var(--dark);
+}
+
+section.view div h3 {
+    margin-top: 0;
+    font-size: 2rem;
+    font-family: 'Oleo Script', cursive;
+}
+
+@media all and (max-width: 768px) {
+    section.view {
+
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    section.view:nth-child(2n):not(.head) {
+        flex-direction: column-reverse;
+    }
+
+    section.view.head img {
+        width: 100%;
+    }
+
+    section.view.head {
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    section.view.head h1 {
+        font-family: 'Train One', cursive;
+        font-size: 5rem;
+        color: var(--dark-grey);
+    }
+}
+
+@media all and (max-width: 1024px) {
+
+    section.view {
+        margin-bottom: 10rem;
+    }
+    section.view.head h1 {
+        font-size: 7rem;
+    }
+}
